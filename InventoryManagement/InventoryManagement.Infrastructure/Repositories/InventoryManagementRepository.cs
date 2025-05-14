@@ -28,5 +28,11 @@ namespace InventoryManagement.Infrastructure.Repositories
 
             return invertory;
 ;        }
+
+        public async Task<Inventory> GetByProductAsync(string product)
+        {
+            var inventory = await _context.Inventories.FirstOrDefaultAsync(p => p.Product == product);
+            return inventory;
+        }
     }
 }

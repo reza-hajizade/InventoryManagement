@@ -1,3 +1,4 @@
+using InventoryManagement.Application.Commands.Handlers;
 using InventoryManagement.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,6 +8,10 @@ ConfigurationManager configuration = builder.Configuration;
 builder.Services.AddApplicationServices(configuration);
 
 builder.Services.AddControllers();
+
+
+builder.Services.AddMediatR(cfg =>
+    cfg.RegisterServicesFromAssembly(typeof(CreateInventoryHandlers).Assembly));
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

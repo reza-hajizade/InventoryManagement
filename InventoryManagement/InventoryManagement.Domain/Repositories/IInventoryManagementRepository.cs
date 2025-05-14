@@ -11,6 +11,9 @@ namespace InventoryManagement.Domain.Repositories
     {
         Task AddAsync(Inventory inventory);
 
+        Task<Inventory> GetByProductAsync(string product);
+
         Task<List<Inventory>> GetAllAsync();
+        
     }
 }
