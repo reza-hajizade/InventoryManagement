@@ -3,6 +3,15 @@ using InventoryManagement.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
+
+
+builder.Services.AddMediatR(cfg =>
+{
+    cfg.RegisterServicesFromAssembly(typeof(CreateInventoryHandlers).Assembly);
+    cfg.RegisterServicesFromAssemblies(typeof(UpdateStockHandler).Assembly);
+});
+
+
 ConfigurationManager configuration = builder.Configuration;
 
 builder.Services.AddApplicationServices(configuration);
@@ -10,8 +19,8 @@ builder.Services.AddApplicationServices(configuration);
 builder.Services.AddControllers();
 
 
-builder.Services.AddMediatR(cfg =>
-    cfg.RegisterServicesFromAssembly(typeof(CreateInventoryHandlers).Assembly));
+
+
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

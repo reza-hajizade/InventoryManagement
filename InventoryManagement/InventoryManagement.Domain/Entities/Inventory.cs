@@ -21,6 +21,12 @@ namespace InventoryManagement.Domain.Entities
                 Stock = stock
             };
         }
+
+        public void Decreasestock(int quantity)
+        {
+            Stock -= quantity;
+        }
+
     }
 
     

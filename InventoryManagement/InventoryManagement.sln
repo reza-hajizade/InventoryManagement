@@ -15,6 +15,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{7EAC12
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventoryManagement.Shared.Abstractions", "InventoryManagement.Shared.Abstractions\InventoryManagement.Shared.Abstractions.csproj", "{20429FFA-9DE7-4CF8-9468-AD3846AF9CF6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventoryManagement.Shared.Contracts", "InventoryManagement.Shared.Contract\InventoryManagement.Shared.Contracts.csproj", "{8D8D842B-FF58-42E7-9B0C-3957821054EB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,11 +43,16 @@ Global
 		{20429FFA-9DE7-4CF8-9468-AD3846AF9CF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{20429FFA-9DE7-4CF8-9468-AD3846AF9CF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{20429FFA-9DE7-4CF8-9468-AD3846AF9CF6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D8D842B-FF58-42E7-9B0C-3957821054EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D8D842B-FF58-42E7-9B0C-3957821054EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D8D842B-FF58-42E7-9B0C-3957821054EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D8D842B-FF58-42E7-9B0C-3957821054EB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{20429FFA-9DE7-4CF8-9468-AD3846AF9CF6} = {7EAC12C7-2AF2-4A23-AF8D-6156B501B3BF}
+		{8D8D842B-FF58-42E7-9B0C-3957821054EB} = {7EAC12C7-2AF2-4A23-AF8D-6156B501B3BF}
 	EndGlobalSection
 EndGlobal
