@@ -14,10 +14,10 @@ namespace InventoryManagement.Application.Commands.Handlers
 {
     public class UpdateStockHandler : IRequestHandler<UpdateStockCommad>
     {
-        private readonly IInventoryManagementRepository _repository;
+        private readonly IInventoryWriteRepository _repository;
         private readonly IUnitOfWork _unitOfWork;
         private readonly IInventoryEventPublisher _publisher;
-        public UpdateStockHandler(IInventoryManagementRepository repository
+        public UpdateStockHandler(IInventoryWriteRepository repository
             , IUnitOfWork unitOfWork
             , IInventoryEventPublisher publisher)
         {

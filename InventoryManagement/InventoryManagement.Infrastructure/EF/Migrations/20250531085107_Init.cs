@@ -11,8 +11,12 @@ namespace InventoryManagement.Infrastructure.Migrations
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.EnsureSchema(
+                name: "Inventory");
+
             migrationBuilder.CreateTable(
                 name: "Inventories",
+                schema: "Inventory",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
@@ -30,7 +34,8 @@ namespace InventoryManagement.Infrastructure.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Inventories");
+                name: "Inventories",
+                schema: "Inventory");
         }
     }
 }

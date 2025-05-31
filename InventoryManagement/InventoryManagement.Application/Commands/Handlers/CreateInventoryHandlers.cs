@@ -10,18 +10,18 @@ namespace InventoryManagement.Application.Commands.Handlers
     public class CreateInventoryHandlers : IRequestHandler<CreateInventoryCommand>
     {
 
-        private readonly IInventoryManagementRepository _inventoryManagementRepository;
+        private readonly IInventoryWriteRepository _inventoryWriteRepository;
         private readonly IUnitOfWork _unitOfWork;
-        public CreateInventoryHandlers(IInventoryManagementRepository inventoryManagementRepository,
+        public CreateInventoryHandlers(IInventoryWriteRepository inventoryWriteRepository,
             IUnitOfWork unitOfWork)
         {
-            _inventoryManagementRepository = inventoryManagementRepository;
+            _inventoryWriteRepository = inventoryWriteRepository;
             _unitOfWork = unitOfWork;
         }
 
         public async Task Handle(CreateInventoryCommand command, CancellationToken cancellationToken)
         {
-            var existingInvertory =await _inventoryManagementRepository.GetByProductAsync(command.Product);
+            var existingInvertory =await _inventoryWriteRepository.GetByProductAsync(command.Product);
 
             if (existingInvertory != null)
             {
@@ -31,7 +31,7 @@ namespace InventoryManagement.Application.Commands.Handlers
 
 
             var newInventory = Inventory.Create(command.Product, command.Stock);
-            await _inventoryManagementRepository.AddAsync(newInventory);
+            await _inventoryWriteRepository.AddAsync(newInventory);
             await _unitOfWork.SaveChangeAsync();
 
         }

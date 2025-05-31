@@ -1,19 +1,16 @@
-﻿using System;
+﻿using InventoryManagement.Domain.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using InventoryManagement.Domain.Entities;
 
 namespace InventoryManagement.Domain.Repositories
 {
-    public interface IInventoryManagementRepository
+    public interface IInventoryWriteRepository
     {
         Task AddAsync(Inventory inventory);
 
         Task<Inventory> GetByProductAsync(string product);
-
-        Task<List<Inventory>> GetAllAsync();
-        
     }
 }

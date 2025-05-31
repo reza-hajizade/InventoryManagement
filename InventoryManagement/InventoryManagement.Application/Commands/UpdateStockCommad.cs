@@ -7,6 +7,6 @@ using MediatR;
 
 namespace InventoryManagement.Application.Commands
 {
-    public record UpdateStockCommad(int Id,string Product,int Quantity):IRequest;
+    public sealed record UpdateStockCommad(int Id,string Product,int Quantity):IRequest;
    
 }

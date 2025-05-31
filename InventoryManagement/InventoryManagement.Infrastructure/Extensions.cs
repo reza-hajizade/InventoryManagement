@@ -1,9 +1,9 @@
 ﻿using System.Reflection;
 using InventoryManagement.Application.Interfaces;
 using InventoryManagement.Domain.Repositories;
+using InventoryManagement.Infrastructure.EF;
 using InventoryManagement.Infrastructure.Messaging.Configuration;
 using InventoryManagement.Infrastructure.Messaging.Publishers;
-using InventoryManagement.Infrastructure.Repositories;
 using InventoryManagement.Infrastructure.UnitOfWork;
 using MassTransit;
 using Microsoft.EntityFrameworkCore;
@@ -16,14 +16,12 @@ namespace InventoryManagement.Infrastructure
     {
         public static IServiceCollection AddApplicationServices(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddDbContext<InventoryManagementDbContext>(options =>
-            options.UseNpgsql(configuration.GetConnectionString("SvcDbContext")));
 
 
+            services.AddSQLDB(configuration);
 
-            services.AddScoped<IUnitOfWork, UnitOfWork.UnitOfWork>();
+            services.AddScoped<IUnitOfWork, EF.UnitOfWork.UnitOfWork>();
 
-            services.AddScoped<IInventoryManagementRepository, InventoryManagementRepository>();
 
             services.AddScoped<IInventoryEventPublisher, InventoryEventPublisher>();
 

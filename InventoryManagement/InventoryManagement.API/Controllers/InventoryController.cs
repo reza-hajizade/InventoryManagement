@@ -25,7 +25,7 @@ namespace InventoryManagement.API.Controllers
         }
 
         [HttpGet("Get")]
-        public async Task<IActionResult> Get([FromQuery] string product)
+        public async Task<IActionResult> GetByProduct([FromQuery] string product)
         {
             var query = new GetInventoryQuery(product);
            var result= await _mediator.Send(query);

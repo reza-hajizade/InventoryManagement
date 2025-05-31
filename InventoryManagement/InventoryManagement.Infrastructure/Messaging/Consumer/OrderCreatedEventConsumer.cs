@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using InventoryManagement.Application.Commands;
+using InventoryManagement.Infrastructure.EF.Context;
 using InventoryManagement.Shared.Contracts.Events;
 using MassTransit;
 using MediatR;
@@ -13,15 +14,15 @@ using OrderManagement.Shared.Contracts.Events;
 
 namespace InventoryManagement.Infrastructure.Messaging.Consumer
 {
-    public class OrderCreatedEventConsumer(InventoryManagementDbContext inventoryManagementDbContext,
+    public class OrderCreatedEventConsumer(WriteDbContext writeDbContext,
         IMediator mediator) : IConsumer<OrderCreatedEvent>
     {
-        private readonly InventoryManagementDbContext _inventoryManagementDbContext = inventoryManagementDbContext;
+        private readonly WriteDbContext  _writeDbContext = writeDbContext;
         private readonly IMediator _mediator=mediator;
        
         public async Task Consume(ConsumeContext<OrderCreatedEvent> context)
         {
-            var inventory = await _inventoryManagementDbContext.Inventories.FirstOrDefaultAsync(p => p.Product == context.Message.Name);
+            var inventory = await _writeDbContext.Inventories.FirstOrDefaultAsync(p => p.Product == context.Message.Name);
 
             if (inventory is null)
             {
@@ -31,11 +32,6 @@ namespace InventoryManagement.Infrastructure.Messaging.Consumer
 
            await _mediator.Send(new UpdateStockCommad(context.Message.Id,inventory.Product,context.Message.Quantity));
           
-
-
         }
-
-
-
     }
 }
