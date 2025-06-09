@@ -7,5 +7,5 @@ using System.Threading.Tasks;
 namespace InventoryManagement.Shared.Contracts.Events
 {
 
-    public record InventoryFailedEvent(int Id,string Name, DateTime OccuredOn);
+    public record InventoryFailedEvent(Guid Id,string Name, DateTime OccuredOn);
 }

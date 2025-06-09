@@ -8,7 +8,7 @@ namespace InventoryManagement.Domain.Entities
 {
     public class Inventory
     {
-        public int Id { get; set; }
+        public Guid Id { get; private set; } = Guid.NewGuid();
         public string Product { get;private set; }
         public int Stock { get;private set; }
 
@@ -17,6 +17,7 @@ namespace InventoryManagement.Domain.Entities
         {
             return new Inventory
             {
+                
                 Product = product,
                 Stock = stock
             };

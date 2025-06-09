@@ -6,6 +6,6 @@ using System.Threading.Tasks;
 
 namespace InventoryManagement.Shared.Contracts.Events
 {
-    public record InventoryReservedEvent(int Id,string Name, DateTime OccuredOn);
+    public record InventoryReservedEvent(Guid Id,string Name, DateTime OccuredOn);
 
 }
