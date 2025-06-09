@@ -1,16 +1,10 @@
-﻿using InventoryManagement.Application.Repositories;
-using InventoryManagement.Domain.Repositories;
+﻿using InventoryManagement.Domain.Repositories;
 using InventoryManagement.Infrastructure.EF.Context;
 using InventoryManagement.Infrastructure.EF.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace InventoryManagement.Infrastructure.EF
 {

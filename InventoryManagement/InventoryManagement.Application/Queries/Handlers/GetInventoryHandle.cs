@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using InventoryManagement.Application.Dto;
+﻿using InventoryManagement.Application.Dto;
 using InventoryManagement.Application.Exceptions;
-using InventoryManagement.Application.Repositories;
 using InventoryManagement.Domain.Repositories;
 using InventoryManagement.Infrastructure.UnitOfWork;
 using MediatR;
